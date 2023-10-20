@@ -1,1 +1,1 @@
-To run frontend-dev```cd frontend && npm start```To serve changes on backend```cd frontend && npm run buildcd backend && node app.js```
+To run frontend-dev```cd frontend && npm start```To serve changes on backend```cd frontend && npm run build && cd .. && cd backend && node app.js```
