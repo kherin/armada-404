@@ -19,6 +19,7 @@
   "homepage": "https://github.com/kherin/armada-404#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "redis": "^4.6.10"
   }
 }
