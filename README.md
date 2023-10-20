@@ -1,6 +1,6 @@
 # Team: Armada 404
 
-![team-logo](.frontend/assets/img/team-logo.jpeg)
+![team-logo](./frontend/assets/img/team-logo.jpeg)
 
 ## Setup Instructions
 
