@@ -39,7 +39,7 @@ const Sidebar: React.FC<SidebarPropsType> = ({ defaultOpen = false }) => {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }} transition={{ delay: 0.2 }} className="flex w-full justify-between items-center">
                             <div className=''>
-                                <img src={logo} className='w-24' />
+                                <img src={logo} className='w-40' />
                             </div>
                             <Menu onClick={() => setIsOpen(!isOpen)} />
                         </motion.div>
@@ -49,7 +49,7 @@ const Sidebar: React.FC<SidebarPropsType> = ({ defaultOpen = false }) => {
                 </AnimatePresence>
             </div>
 
-            <div className="flex flex-col items-center space-y-4 w-full">
+            <div className="flex flex-col items-center space-y-4 w-full mt-4">
                 <a className={` ${isOpen ? 'w-24' : 'w-auto'}`} href={"/"}><NavItem isOpen={isOpen} icon={<HomeIcon name='home' className='w-4 h-4' />} text={"Home"} /></a>
             </div>
         </motion.div>
