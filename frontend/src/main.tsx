@@ -10,7 +10,11 @@ import Root from "./Root";
 import AuthLayout from "./auth/auth_layout";
 import { Login } from "./auth/Login";
 import "./index.css";
+
+// pages
 import Dashboard from "./pages/dashboard";
+import UploadAudioPage from "./pages/audio";
+
 // Create a root route
 const rootRoute = new RootRoute({
   component: Root,
@@ -32,7 +36,7 @@ const rootRoute = new RootRoute({
 const uploadAudioRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "upload-audio",
-  component: () => <div>upload audio</div>,
+  component: () => <UploadAudioPage />,
 });
 
 // Create an index route
