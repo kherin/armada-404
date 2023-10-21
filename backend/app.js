@@ -2,7 +2,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
 const OpenAI = require('openai');
-const openai = new OpenAI({apiKey: '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'});
+require('dotenv').config();
+const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 const app = express();
 const PORT = 3001;
 
