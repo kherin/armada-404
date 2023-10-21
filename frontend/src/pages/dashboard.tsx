@@ -33,16 +33,15 @@ const Dashboard = () => {
         duration: 0
     })
 
-    const form = useForm<any>({
-    })
+    function onSubmit() {
+        const updatedMeetings = {
+            starttime: time.starttime,
+            endtime: time.endtime,
+            agendas: agendas
+        }
 
-    const agendaForm = useForm<any>({
-    })
+        localStorage.setItem('meetings', JSON.stringify(updatedMeetings))
 
-
-    function onSubmit(e: any, values: any) {
-        e.preventDefault();
-        console.log(values)
     }
 
     function addagenda() {
@@ -54,27 +53,22 @@ const Dashboard = () => {
         })
     }
 
-
-
-
     const [showNewMeetingForm, setShowMeetingForm] = useState(false)
     return (
-        <div className='container flex flex-col justify-center items-center h-full overflow-y-scroll'>
+        <div className='container mt-4 flex flex-col justify-center items-center h-full'>
             {!showNewMeetingForm && <Button className='bg-sdorange text-white' variant={'outline'} onClick={() => setShowMeetingForm(!showNewMeetingForm)}>New Meeting</Button>}
 
             {showNewMeetingForm && <>
-                <Form {...form}>
-                    <form className=" gap-4 flex mb-4">
-                        <div className='border rounded-md w-full'>
-                            <input className='w-full p-4' type='datetime-local' value={time.starttime} onChange={(e: any) => settime({ ...time, starttime: e.target.value })} placeholder='Title'></input>
-                        </div>
-                        <div className='border rounded-md w-full'>
-                            <input className='w-full p-4' type='datetime-local' value={time.endtime} onChange={(e: any) => settime({ ...time, endtime: e.target.value })} placeholder='Title'></input>
-                        </div>
-                    </form>
-                </Form>
+                <div className=" gap-4 flex mb-4">
+                    <div className='border rounded-md w-full'>
+                        <input className='w-full p-4' type='datetime-local' value={time.starttime} onChange={(e: any) => settime({ ...time, starttime: e.target.value })} placeholder='Title'></input>
+                    </div>
+                    <div className='border rounded-md w-full'>
+                        <input className='w-full p-4' type='datetime-local' value={time.endtime} onChange={(e: any) => settime({ ...time, endtime: e.target.value })} placeholder='Title'></input>
+                    </div>
+                </div>
 
-                <form className="space-y-8 w-full">
+                <div className="space-y-8 w-full">
                     <div className='flex flex-col space-y-4 w-full'>
                         <div className='border rounded-md w-full'>
                             <input className='w-full p-4' value={currentAgenda.title} onChange={(e: any) => setCurrentAgenda({ ...currentAgenda, title: e.target.value })} placeholder='Title'></input>
@@ -90,7 +84,7 @@ const Dashboard = () => {
 
                     <Button className='bg-sdorange hover:bg-sdorangehover hover:outline-1' onClick={addagenda}>Add Agenda</Button>
 
-                </form>
+                </div>
 
             </>}
 
@@ -107,9 +101,7 @@ const Dashboard = () => {
             </div>
 
 
-            <Button className='bg-sdorange hover:bg-sdorangehover hover:outline-1' onClick={() => { }}>Save</Button>
-
-
+            {showNewMeetingForm && <Button className='bg-sdorange hover:bg-sdorangehover hover:outline-1' onClick={onSubmit}>Save</Button>}
 
         </div>
     )
