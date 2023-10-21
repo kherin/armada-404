@@ -7,11 +7,10 @@ import {
   RootRoute,
 } from "@tanstack/react-router";
 import Root from "./Root";
-import AuthLayout from "./auth/auth_layout";
-import { Login } from "./auth/Login";
 import "./index.css";
 import Dashboard from "./pages/dashboard";
 import Summary from "./pages/summary";
+import MeetingStatus from "./pages/meetingstatus";
 // Create a root route
 const rootRoute = new RootRoute({
   component: Root,
@@ -49,8 +48,15 @@ const summaryRoute = new Route({
   component: Summary,
 });
 
+const meetingStatusRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: "meetingstatus",
+  component: MeetingStatus,
+});
+
 indexRoute.addChildren([uploadAudioRoute]);
 indexRoute.addChildren([summaryRoute]);
+indexRoute.addChildren([meetingStatusRoute]);
 
 // Create the route tree using your routes
 const routeTree = rootRoute.addChildren([indexRoute]);
