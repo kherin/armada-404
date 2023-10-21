@@ -59,7 +59,7 @@ const Dashboard = () => {
 
     const [showNewMeetingForm, setShowMeetingForm] = useState(false)
     return (
-        <div className='container flex flex-col justify-center items-center h-full'>
+        <div className='container flex flex-col justify-center items-center h-full overflow-y-scroll'>
             {!showNewMeetingForm && <Button className='bg-sdorange text-white' variant={'outline'} onClick={() => setShowMeetingForm(!showNewMeetingForm)}>New Meeting</Button>}
 
             {showNewMeetingForm && <>
@@ -74,7 +74,7 @@ const Dashboard = () => {
                     </form>
                 </Form>
 
-                <form onSubmit={agendaForm.handleSubmit(onSubmit)} className="space-y-8 w-full">
+                <form className="space-y-8 w-full">
                     <div className='flex flex-col space-y-4 w-full'>
                         <div className='border rounded-md w-full'>
                             <input className='w-full p-4' value={currentAgenda.title} onChange={(e: any) => setCurrentAgenda({ ...currentAgenda, title: e.target.value })} placeholder='Title'></input>
@@ -94,7 +94,7 @@ const Dashboard = () => {
 
             </>}
 
-            <div className='my-4 w-full'>
+            <div className='my-4 w-full space-y-4'>
                 {agendas.map((agenda) => {
                     return (
                         <div className='flex p-4 border rounded-md shadow-md w-full justify-between items-center gap-4'>
