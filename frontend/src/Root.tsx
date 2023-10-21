@@ -7,7 +7,7 @@ const Root = () => {
         <>
             <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
                 <Sidebar />
-                <div className="ml-[10px]">
+                <div className="ml-[70px] h-screen">
                     <Outlet />
                 </div>
             </ThemeProvider>
