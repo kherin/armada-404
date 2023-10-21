@@ -5,9 +5,9 @@ import Sidebar from "./components/sidebar";
 const Root = () => {
     return (
         <>
-            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
                 <Sidebar />
-                <div className="ml-[70px] h-screen">
+                <div className="ml-[70px] h-screen overflow-hidden">
                     <Outlet />
                 </div>
             </ThemeProvider>
