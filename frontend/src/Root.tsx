@@ -7,7 +7,7 @@ const Root = () => {
         <>
             <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
                 <Sidebar />
-                <div className="ml-[70px] h-screen overflow-hidden">
+                <div className="ml-[70px] h-full max-h-[calc(100vh-10px)] overflow-auto">
                     <Outlet />
                 </div>
             </ThemeProvider>
