@@ -7,8 +7,6 @@ import {
   RootRoute,
 } from "@tanstack/react-router";
 import Root from "./Root";
-import AuthLayout from "./auth/auth_layout";
-import { Login } from "./auth/Login";
 import "./index.css";
 
 // pages
