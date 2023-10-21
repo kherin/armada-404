@@ -52,8 +52,6 @@ const Sidebar: React.FC<SidebarPropsType> = ({ defaultOpen = false }) => {
             <div className="flex flex-col items-center space-y-4 w-full mt-4">
                 <a className={` ${isOpen ? 'w-44' : 'w-auto'}`} href={"/"}><NavItem isOpen={isOpen} icon={<HomeIcon name='home' className='w-4 h-4' />} text={"Home"} /></a>
                 <a className={` ${isOpen ? 'w-44' : 'w-auto'}`} href={"/summary"}><NavItem isOpen={isOpen} icon={<TextIcon name='summary' className='w-4 h-4' />} text={"Summary"} /></a>
-                <a className={` ${isOpen ? 'w-44' : 'w-auto'}`} href={"/meetingstatus"}><NavItem isOpen={isOpen} icon={<TimerIcon name='meetingstatus' className='w-4 h-4' />} text={"Meeting Status"} /></a>
-
             </div>
         </motion.div>
     );

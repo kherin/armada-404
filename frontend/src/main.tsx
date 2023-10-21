@@ -54,9 +54,7 @@ const meetingStatusRoute = new Route({
   component: MeetingStatus,
 });
 
-indexRoute.addChildren([uploadAudioRoute]);
-indexRoute.addChildren([summaryRoute]);
-indexRoute.addChildren([meetingStatusRoute]);
+indexRoute.addChildren([uploadAudioRoute,summaryRoute, meetingStatusRoute]);
 
 // Create the route tree using your routes
 const routeTree = rootRoute.addChildren([indexRoute]);

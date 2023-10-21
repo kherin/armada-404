@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { useRouter } from '@tanstack/react-router';
 import React, { useState } from 'react'
 
 
@@ -10,6 +11,7 @@ type agendatype = {
 
 
 const Dashboard = () => {
+    const router = useRouter();
     const [time, settime] = useState<{ starttime: string, endtime: string }>({
         starttime: new Date().toISOString(),
         endtime: new Date().toISOString(),
@@ -29,7 +31,7 @@ const Dashboard = () => {
         }
 
         localStorage.setItem('meetings', JSON.stringify(updatedMeetings))
-
+        alert("Meetings Saved!, Navigate to summary page")
     }
 
     function addagenda() {
