@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HomeIcon, Menu } from 'lucide-react';
+import { HomeIcon, Menu, TextIcon, TimerIcon } from 'lucide-react';
 
 import logo from "@/assets/imgs/SD_logo_baseline_RGB.png"
 const variants = {
@@ -50,7 +50,8 @@ const Sidebar: React.FC<SidebarPropsType> = ({ defaultOpen = false }) => {
             </div>
 
             <div className="flex flex-col items-center space-y-4 w-full mt-4">
-                <a className={` ${isOpen ? 'w-24' : 'w-auto'}`} href={"/"}><NavItem isOpen={isOpen} icon={<HomeIcon name='home' className='w-4 h-4' />} text={"Home"} /></a>
+                <a className={` ${isOpen ? 'w-44' : 'w-auto'}`} href={"/"}><NavItem isOpen={isOpen} icon={<HomeIcon name='home' className='w-4 h-4' />} text={"Home"} /></a>
+                <a className={` ${isOpen ? 'w-44' : 'w-auto'}`} href={"/summary"}><NavItem isOpen={isOpen} icon={<TextIcon name='summary' className='w-4 h-4' />} text={"Summary"} /></a>
             </div>
         </motion.div>
     );
@@ -58,7 +59,7 @@ const Sidebar: React.FC<SidebarPropsType> = ({ defaultOpen = false }) => {
 
 const NavItem: React.FC<{ isOpen: boolean, icon: JSX.Element | string, text: string }> = ({ isOpen, icon, text }) => {
     return (
-        <div className="flex w-full items-center justify-center gap-2 flex-1 hover:bg-blue-900 hover:text-white cursor-pointer py-2 px-1 rounded-md">
+        <div className="flex w-full items-center justify-center gap-2 flex-1 hover:bg-sdorange hover:text-white cursor-pointer py-2 px-1 rounded-md">
             <span className="">{icon}</span>
             <AnimatePresence mode='sync'>
                 {isOpen && (
