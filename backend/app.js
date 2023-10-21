@@ -2,12 +2,14 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
 const OpenAI = require('openai');
+const cors = require('cors');
 require('dotenv').config();
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 const app = express();
 const PORT = 3001;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
@@ -37,5 +39,31 @@ app.post('/openai', async (req, res) => {
   } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/transcribe', upload.single('file'), async (req, res) => {
+  try {
+    const  audioFile  = req.file;
+    if (!audioFile) {
+      return res.status(400).json({ error: 'No audio file provided' });
+    }
+    const  formData  =  new  FormData();
+    const  audioStream  =  bufferToStream(audioFile.buffer);
+    formData.append('file', audioStream, { filename: 'audio.mp3', contentType: audioFile.mimetype });
+    formData.append('model', 'whisper-1');
+    formData.append('response_format', 'json');
+    const  config  = {
+      headers: {
+        "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+      },
+    };
+    // Call the OpenAI Whisper API to transcribe the audio
+    const  response  =  await axios.post('https://api.openai.com/v1/audio/transcriptions', formData, config);
+    const  transcription  = response.data.text;
+    res.json({ transcription });
+  } catch (error) {
+    res.status(500).json({ error: 'Error transcribing audio' });
   }
 });

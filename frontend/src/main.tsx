@@ -11,6 +11,7 @@ import AuthLayout from "./auth/auth_layout";
 import { Login } from "./auth/Login";
 import "./index.css";
 import Dashboard from "./pages/dashboard";
+import Summary from "./pages/summary";
 // Create a root route
 const rootRoute = new RootRoute({
   component: Root,
@@ -42,7 +43,14 @@ const indexRoute = new Route({
   component: Dashboard,
 });
 
+const summaryRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: "summary",
+  component: Summary,
+});
+
 indexRoute.addChildren([uploadAudioRoute]);
+indexRoute.addChildren([summaryRoute]);
 
 // Create the route tree using your routes
 const routeTree = rootRoute.addChildren([indexRoute]);

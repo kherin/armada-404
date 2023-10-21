@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HomeIcon, Menu } from 'lucide-react';
+import { HomeIcon, Menu, TextIcon } from 'lucide-react';
 
 import logo from "@/assets/imgs/SD_logo_baseline_RGB.png"
 const variants = {
@@ -51,6 +51,8 @@ const Sidebar: React.FC<SidebarPropsType> = ({ defaultOpen = false }) => {
 
             <div className="flex flex-col items-center space-y-4 w-full mt-4">
                 <a className={` ${isOpen ? 'w-24' : 'w-auto'}`} href={"/"}><NavItem isOpen={isOpen} icon={<HomeIcon name='home' className='w-4 h-4' />} text={"Home"} /></a>
+                <a className={` ${isOpen ? 'w-24' : 'w-auto'}`} href={"/summary"}><NavItem isOpen={isOpen} icon={<TextIcon name='summary' className='w-4 h-4' />} text={"Summary"} /></a>
+            
             </div>
         </motion.div>
     );
