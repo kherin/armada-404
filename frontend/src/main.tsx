@@ -8,6 +8,8 @@ import {
 } from "@tanstack/react-router";
 import Root from "./Root";
 import "./index.css";
+
+// pages
 import Dashboard from "./pages/dashboard";
 import Summary from "./pages/summary";
 import MeetingStatus from "./pages/meetingstatus";
@@ -29,11 +31,11 @@ const rootRoute = new RootRoute({
 //   component: Login,
 // })
 
-const uploadAudioRoute = new Route({
-  getParentRoute: () => rootRoute,
-  path: "upload-audio",
-  component: () => <div>upload audio</div>,
-});
+// const uploadAudioRoute = new Route({
+//   getParentRoute: () => rootRoute,
+//   path: "upload-audio",
+//   component: () => <UploadAudioPage />,
+// });
 
 // Create an index route
 const indexRoute = new Route({
@@ -54,7 +56,7 @@ const meetingStatusRoute = new Route({
   component: MeetingStatus,
 });
 
-indexRoute.addChildren([uploadAudioRoute,summaryRoute, meetingStatusRoute]);
+indexRoute.addChildren([summaryRoute, meetingStatusRoute]);
 
 // Create the route tree using your routes
 const routeTree = rootRoute.addChildren([indexRoute]);
