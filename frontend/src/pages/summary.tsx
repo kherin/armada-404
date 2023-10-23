@@ -63,7 +63,7 @@ const Summary = () => {
     const summariseText = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch('http://localhost:3001/openai', {
+            const response = await fetch('https://shadowed-spotted-cupboard.glitch.me/openai', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
